@@ -9,37 +9,28 @@ describe NumberString do
   describe '+' do
     subject { two + four }
 
-    it { expect(subject.value).to eq 6 }
     it { expect(subject.string).to eq '(2 + 4)' }
+    it { expect(subject.value).to eq 6 }
   end
 
   describe '-' do
     subject { two - four }
 
-    it { expect(subject.value).to eq -2 }
     it { expect(subject.string).to eq '(2 - 4)' }
+    it { expect(subject.value).to eq -2 }
   end
 
   describe '*' do
     subject { two * four }
 
-    it { expect(subject.value).to eq 8 }
     it { expect(subject.string).to eq '(2 * 4)' }
+    it { expect(subject.value).to eq 8 }
   end
 
   describe '/' do
-    context 'evenly divisible' do
-      subject { four / two }
+    subject { four / two }
 
-      it { expect(subject.value).to eq 2 }
-      it { expect(subject.string).to eq '(4 / 2)' }
-    end
-
-    context 'not evenly divisible' do
-      subject { two / four }
-
-      it { expect(subject.value).to eq 0 }
-      it { expect(subject.string).to eq '(2 / 4)' }
-    end
+    it { expect(subject.string).to eq '(4 / 2)' }
+    it { expect(subject.value).to eq 2 }
   end
 end
